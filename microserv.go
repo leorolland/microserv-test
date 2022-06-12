@@ -17,12 +17,18 @@ func main() {
 
 func start() {
 
-	if _, isDefined := os.LookupEnv("PG_ENABLED"); isDefined {
-		TestPGConnection()
+	_, pgEnabled := os.LookupEnv("PG_ENABLED")
+	var db *MicroservDB
+
+	if pgEnabled {
+		db = NewMicroservDB()
+		if tableName, defined := os.LookupEnv("PG_TABLE"); defined {
+			db.CreateTable(tableName)
+		}
 	}
 
 	if _, isDefined := os.LookupEnv("WS_ENABLED"); isDefined {
-		OpenWebservice()
+		OpenWebservice(db)
 	}
 
 }
