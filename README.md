@@ -5,9 +5,9 @@ A small cloud-native app that connects to a PostgreSQL instance and exposes a we
 Using Docker
 ```sh
 # With default settings
-docker run leorolland/microserv-test:v0.2.0
+docker run leorolland/microserv-test:v0.3.0
 # With .env file
-docker run --env-file .env leorolland/microserv-test:v0.2.0
+docker run --env-file .env leorolland/microserv-test:v0.3.0
 ```
 Build & run using vars in `.env` (copy `.env.sample` to `.env` before) (requires Go compiler)
 ```sh
@@ -40,7 +40,7 @@ docker run \
 -e PG_USER=postgres \
 -e PG_PASSWORD=postgres \
 -e PG_DB=postgres \
---network postgres -p 8000:8000 leorolland/microserv-test:v0.2.0
+--network postgres -p 8000:8000 leorolland/microserv-test:v0.3.0
 ```
 
 ## Expose a WebService
